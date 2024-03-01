@@ -1,0 +1,44 @@
+html {
+  scroll-behavior: smooth !important;
+}
+
+.banner {
+  background: url("images/ghoda.png") no-repeat rgb(17 24 39);
+  background-position: 60rem 10rem;
+}
+
+.banner_dis {
+  background: url("images/c4.png") no-repeat rgb(17 24 39);
+  background-position: 50rem 5rem;
+}
+
+.banner_ques {
+  background: url("images/c1.png") no-repeat rgb(17 24 39);
+  background-position: 50rem 5rem;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 5rem;
+  height: 5rem;
+  background: url("images/c1.png") no-repeat center/contain;
+}
+
+.card:nth-child(2n):after {
+  background: url("images/c2.png") no-repeat center/contain;
+}
+.card:nth-child(3n):after {
+  background: url("images/c3.png") no-repeat center/contain;
+}
+.card:nth-child(4n):after {
+  background: url("images/c4.png") no-repeat center/contain;
+}
+.card:nth-child(5n):after {
+  background: url("images/c5.png") no-repeat center/contain;
+}
+
+#team_pic{
+  background:url("images/user.png");
+} 
