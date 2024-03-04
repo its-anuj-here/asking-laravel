@@ -16,15 +16,28 @@
       >
         <h2 class="text-white text-lg font-medium title-font mb-5">
           Registration
-        </h2><form action="./signup.php" method="post">
-        <div class="relative mb-4">
-          <label for="username" class="leading-7 text-sm text-gray-400"
-            >User Name</label
+        </h2>
+        <form action="{{route('register.post')}}" method="post">
+          @csrf
+          <div class="relative mb-4">
+            <label for="username" class="leading-7 text-sm text-gray-400"
+              >User Name</label
+            >
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-yellow-900 rounded border border-gray-600 focus:border-yellow-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div class="relative mb-4">
+          <label for="email" class="leading-7 text-sm text-gray-400"
+            >Email</label
           >
           <input
-            type="text"
-            id="username"
-            name="username"
+            type="email"
+            id="email"
+            name="email"
             class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-yellow-900 rounded border border-gray-600 focus:border-yellow-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           />
         </div>
