@@ -1,4 +1,3 @@
-
 <section
         class="w-full p-10 flex justify-start pt-[12rem] bg-gray-900 banner"
 >
@@ -11,7 +10,7 @@
         </p>
         <button
             class="self-start justify-self-start px-4 py-2 border border-2 border-white text-yellow-400"
-            onclick="window.location.href='./onlyCategories.php';"
+            onclick="window.location.href='{{route('allcategory')}}';"
         >
             Explore Now
         </button>
