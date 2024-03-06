@@ -31,4 +31,8 @@ class CategoryController extends Controller
         }
         return redirect(route('allcategory'))->with("success", "Category adding successful, you can post now");
     }
+
+    public function updateCategory(){
+        return view('updatecategory');
+    }
 }

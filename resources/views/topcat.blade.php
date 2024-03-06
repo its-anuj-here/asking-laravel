@@ -19,6 +19,7 @@
         id="cat-container"
 >
     
+    @foreach ($categories as $category)
     <div class="p-4 lg:w-1/3 relative overflow-hidden card">
         <div
             class="h-full bg-gray-800 bg-opacity-40 px-8 pt-16 pb-20 rounded-lg overflow-hidden text-center relative"
@@ -26,15 +27,15 @@
         <h1
             class="title-font sm:text-2xl text-xl font-medium text-white mb-3"
         >
-        category name
+        {{$category->cat_name}}
         </h1>
         <p class="leading-relaxed mb-3">
-            category_desc upto 100 chars
+            {{substr($category->cat_desc, 0, 100)}}
         </p>
         <a
             class="text-yellow-400 inline-flex items-center cursor-pointer"
-            href="discusspage.php?id=' . $row['cat_id'] . '"
-        >Join Discussion
+            href=""
+        >Join Discussion {{ $category->cat_id}}
             <svg
             class="w-4 h-4 ml-2"
             viewBox="0 0 24 24"
@@ -63,9 +64,10 @@
                     stroke-linejoin="round"
                     viewBox="0 0 24 24"
                 >
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle></svg
-            >12
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                {{$category->cat_views}}
             </span>
             <span
                 class="text-gray-500 inline-flex items-center leading-none text-sm"
@@ -87,5 +89,6 @@
             </div>
         </div>
     </div>
+    @endforeach
 
 </section>

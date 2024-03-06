@@ -7,9 +7,9 @@
     </a>
     <nav class="flex flex-wrap items-center text-base justify-center">
       <a href="{{route('home')}}" class="mr-5 hover:text-white">Home</a>
-      <a href="./index.php#cat-container" class="mr-5 hover:text-white">Categories</a>
-      <a href="./index.php#features" class="mr-5 hover:text-white">Features</a>
-      <a href="./team.php" class="mr-5 hover:text-white">Team</a>
+      <a href="{{route('allcategory')}}" class="mr-5 hover:text-white">Categories</a>
+      <a href="/#features" class="mr-5 hover:text-white">Features</a>
+      <a href="{{route('team')}}" class="mr-5 hover:text-white">Team</a>
     </nav>
 
     <div id="search-div" class="flex justify-center bg-gray-700 rounded-lg px-2 py-1">
