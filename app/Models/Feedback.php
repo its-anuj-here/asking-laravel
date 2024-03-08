@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Feedback extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'cat_name',
-        'cat_desc',
-        'cat_views'
+    protected $fillable=[
+        'sender',
+        'email',
+        'message'
     ];
 }

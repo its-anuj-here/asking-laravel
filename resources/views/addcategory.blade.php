@@ -13,7 +13,7 @@
                 class=" bg-gray-800 bg-opacity-50 rounded-lg p-10 flex flex-col w-full mt-5"
             >
                 <h2 class="text-white text-lg font-medium title-font mb-5">Category</h2>
-                <form action="{{route('addcategory.post')}}" method="post">
+                <form action="{{route('category.add.post')}}" method="post">
                     @csrf
                     <div class="relative mb-4">
                         <label for="name" class="leading-7 text-sm text-gray-400"
@@ -47,7 +47,7 @@
                 </form>
                 <div class="flex gap-2 py-5 text-white/50 text-sm">
                     <p>Want to check existing categories ?</p><br>
-                    <a class="underline underline-offset-8" href="{{route('allcategory')}}">
+                    <a class="underline underline-offset-8" href="{{route('category.all')}}">
                         All Categories
                     </a>
                 </div>

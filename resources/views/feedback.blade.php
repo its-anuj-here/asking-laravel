@@ -1,6 +1,20 @@
 <!-- feedback and contact us -->
 <section class="text-gray-400 bg-gray-900 body-font relative">
-    <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+  <div class="text-center pt-5">
+    <h1
+      class="sm:text-3xl text-2xl font-medium title-font text-white mb-1"
+    >
+      Contact Us
+    </h1>
+
+    <div class="flex mt-3 justify-center">
+      <div
+        class="w-16 h-1 rounded-full bg-yellow-500 inline-flex"
+      ></div>
+    </div>
+  </div>
+    <div class="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
+      
       <div
         class="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative"
       >
@@ -35,7 +49,7 @@
             >
               EMAIL
             </h2>
-            <a class="lg:w-1/5 text-yellow-400 leading-relaxed">group.it100project@gmail.com</a>
+            <a class="lg:w-1/5 text-yellow-400 leading-relaxed" href="mailto:group.it100project@gmail.com">group.it100project@gmail.com</a>
             <h2
               class="title-font font-semibold text-white tracking-widest text-xs mt-4"
             >
@@ -51,27 +65,28 @@
         <h2 class="text-white text-xl mb-1 font-medium title-font">
           Feedback
         </h2>
-        <form method='post' action='./feedbacks.php'>
+        <form method='post' action='{{route('feedback')}}'>
+          @csrf
         <div class="relative mb-4">
           
-          <label for="sender_name" class="leading-7 text-sm text-gray-400"
+          <label for="sender" class="leading-7 text-sm text-gray-400"
             >Name</label
           >
           <input
             type="text"
-            id="sender_name"
-            name="sender_name"
+            id="sender"
+            name="sender"
             class="w-full bg-gray-800 rounded border border-gray-700 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           />
         </div>
         <div class="relative mb-4">
-          <label for="sender_email" class="leading-7 text-sm text-gray-400"
+          <label for="email" class="leading-7 text-sm text-gray-400"
             >Email</label
           >
           <input
             type="email"
-            id="sender_email"
-            name="sender_email"
+            id="email"
+            name="email"
             class="w-full bg-gray-800 rounded border border-gray-700 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           />
         </div>

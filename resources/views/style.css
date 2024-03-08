@@ -2,10 +2,6 @@ html {
   scroll-behavior: smooth !important;
 }
 
-.banner {
-  background: url("images/ghoda.png") no-repeat rgb(17 24 39);
-  background-position: 60rem 10rem;
-}
 
 .banner_dis {
   background: url("images/c4.png") no-repeat rgb(17 24 39);

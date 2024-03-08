@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -15,11 +16,11 @@ Route::get('/register', [AuthController::class , 'showRegister' ])->name('regist
 Route::post('/register', [AuthController::class , 'registerPost' ])->name('register.post');
 Route::get('/logout', [AuthController::class , 'logout' ])->name('logout');
 
-Route::get('/allcategory', [CategoryController::class, 'allCategory'])->name('allcategory');
-Route::get('/addcategory', [CategoryController::class, 'addCategory'])->name('addcategory');
-Route::post('/addcategory', [CategoryController::class , 'createCategory' ])->name('addcategory.post');
-Route::get('/updatecategory', [CategoryController::class, 'updateCategory'])->name('updatecategory');
-//Route::put('/updatecategory', [CategoryController::class, 'putUpdateCategory'])->name('updatecategory.put');
+Route::get('/category/all', [CategoryController::class, 'allCategory'])->name('category.all');
+Route::get('/category/{category}/show', [CategoryController::class, 'showCategory'])->name('category.show');
+Route::get('/category/add', [CategoryController::class, 'addCategory'])->name('category.add');
+Route::post('/category/add', [CategoryController::class , 'createCategory' ])->name('category.add.post');
+Route::get('/category/{category}/update', [CategoryController::class, 'updateCategory'])->name('category.update');
+//Route::put('/category/update', [CategoryController::class, 'putUpdateCategory'])->name('category.update.put');
 
-
-//Route::get('/category/id/', [CategoryController::class])
+Route::post('/category/{category}/question/create', [QuestionController::class, 'create'])->name('question.post');

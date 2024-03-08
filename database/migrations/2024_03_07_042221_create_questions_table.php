@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('feedbacks', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('sender');
-            $table->string('email');
-            $table->text('message');
+            $table->bigInteger('que_cat_id');
+            $table->string('que_title');
+            $table->text('que_desc');
+            $table->integer('que_votes')->default(0);
+            $table->integer('que_views')->default(0);
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feedbacks');
+        Schema::dropIfExists('questions');
     }
 };

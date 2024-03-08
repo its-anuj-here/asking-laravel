@@ -3,12 +3,25 @@
 
 @section('content')
     <section
-    class="w-full p-10 pb-2 flex justify-start pt-[8rem] bg-gray-900"
+    class="w-full p-10 pb-2 flex justify-between pt-[8rem] bg-gray-900"
     >
         <article class="flex flex-col gap-7">
             <h2 class="text-4xl text-white font-bold">Available Categories !!</h2>
         </article>
+        <div id="search-div" class="flex justify-center bg-gray-700 rounded-lg px-2 py-1">
+            <div class="flex items-center gap-5">
+              <box-icon class="text-white" name="search-alt"></box-icon>
+              <input id="search-text" type="text" class="bg-transparent  text-white focus:outline-none" placeholder="Search Category" />
+            </div>
+        </div>
+        <a
+          class="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg cursor-pointer"
+          href="{{route('category.add')}}"
+        >
+          Add New
+    </a>
     </section>
+    
     <!-- category section -->
     <section
             class="text-gray-400 bg-gray-900 body-font flex relative w-full flex-wrap justify-center pt-20 pb-20"
@@ -30,8 +43,8 @@
                 
                 <a
                     class="text-yellow-400 inline-flex items-center cursor-pointer"
-                    href="discusspage.php?id=' . $row['cat_id'] . '"
-                >Join Discussion {{ $category->cat_id}}
+                    href="{{route('category.show', ['category'=> $category])}}"
+                >Join Discussion
                     <svg
                     class="w-4 h-4 ml-2"
                     viewBox="0 0 24 24"
@@ -60,9 +73,10 @@
                             stroke-linejoin="round"
                             viewBox="0 0 24 24"
                         >
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle></svg
-                    >{{$category->cat_views}}
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        {{$category->cat_views}}
                     </span>
                     <span
                         class="text-gray-500 inline-flex items-center leading-none text-sm"
@@ -79,7 +93,7 @@
                             <path
                                 d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
                             ></path>
-                        </svg>100
+                        </svg>{{$category->questions}}
                     </span>
                     </div>
                 </div>

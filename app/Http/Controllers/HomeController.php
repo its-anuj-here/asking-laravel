@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Feedbacks;
+use App\Models\Question;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
         $categories = Category::orderBy('cat_views','DESC')->limit(3)->get();
+        foreach($categories as $category){
+            $category['questions'] = Question::where('que_cat_id',$category->id)->count();
+        }
         return view('home', ['categories' => $categories]);
     }
     public function feedback(Request $request){
@@ -22,7 +26,7 @@ class HomeController extends Controller
         $feedback['email'] = $request->email;
         $feedback['message'] = $request->message;
 
-        $user = Feedbacks::create($feedback);
+        $user = Feedback::create($feedback);
 
         if(!$user){
             return redirect(route('home'))->with("error", "Sending failed!, try again.");
