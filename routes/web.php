@@ -19,8 +19,9 @@ Route::get('/logout', [AuthController::class , 'logout' ])->name('logout');
 Route::get('/category/all', [CategoryController::class, 'allCategory'])->name('category.all');
 Route::get('/category/{category}/show', [CategoryController::class, 'showCategory'])->name('category.show');
 Route::get('/category/add', [CategoryController::class, 'addCategory'])->name('category.add');
-Route::post('/category/add', [CategoryController::class , 'createCategory' ])->name('category.add.post');
-Route::get('/category/{category}/update', [CategoryController::class, 'updateCategory'])->name('category.update');
-//Route::put('/category/update', [CategoryController::class, 'putUpdateCategory'])->name('category.update.put');
+Route::post('/category/create', [CategoryController::class , 'createCategory'])->name('category.create');
+Route::get('/category/{category}/edit', [CategoryController::class, 'editCategory'])->name('category.edit');
+Route::put('/category/{category}/update', [CategoryController::class, 'updateCategory'])->name('category.update');
+Route::delete('/category/{category}/delete', [CategoryController::class, 'deleteCategory'])->name('category.delete');
 
-Route::post('/category/{category}/question/create', [QuestionController::class, 'create'])->name('question.post');
+Route::post('/category/{category}/question/create', [QuestionController::class, 'create'])->name('question.create');

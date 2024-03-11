@@ -13,23 +13,25 @@ class QuestionController extends Controller
 
     }
 
-    public function create(Request $request, $id){
-        /*
+    public function create(Category $category, Request $request){
+        
         $request->validate([
             'title' => 'required'
         ]);
-        $category = Category::where('cat_id' ,(int) $id)->get();
-        if($category->isNotEmpty())
-        $newCategory['cat_name']= $request->name;
-        $newCategory['cat_desc']= $request->description;
-        $category = Category::create($newCategory);
-
-        if(!$category){
-            return redirect(route('addcategory'))->with("error", "Adding category failed!, try again.");
-        }
-        return redirect(route('category.all'))->with("success", "Category adding successful, you can post now");
-        */
         
-        dd((int)$id);
+        
+        $newQue['que_cat_id']= $category->id;
+        $newQue['que_title']= $request->title;
+        $newQue['que_desc']= $request->description;
+        $newQue['user_id']= 1;
+        $question = Question::create($newQue);
+
+        if(!$question){
+            return redirect(route('category.add'))->with("error", "Adding question failed!, try again.");
+        }
+        return redirect(route('category.all'))->with("success", "Question added successfully, you can view now");
+        
+        
+        //dd($request);
     }
 }

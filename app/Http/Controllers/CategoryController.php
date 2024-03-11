@@ -15,6 +15,19 @@ class CategoryController extends Controller
         return view('allcategory', ["categories"=>$categories]);
     }
 
+    public function showCategory(Category $category){
+        if(parse_url(url()->previous(), PHP_URL_PATH) != "/category/".$category->id."/edit"){
+            $inc['cat_views'] = ((int) $category->cat_views) + 1;
+            $category->update($inc);
+        }
+        $categories = Category::orderBy('cat_views','DESC')->limit(3)->get();
+        foreach($categories as $cat){
+            $cat['questions'] = Question::where('que_cat_id',$cat->id)->count();
+        }
+        $questions = Question::where('que_cat_id' ,$category->id)->get();
+        return view('showcategory', ['category' => $category, 'categories' => $categories, 'questions'=>$questions]);        
+    }
+
     public function addCategory(){
         return view('addcategory');
     }
@@ -35,17 +48,26 @@ class CategoryController extends Controller
         return redirect(route('category.all'))->with("success", "Category adding successful, you can post now");
     }
 
-    public function updateCategory(){
-        return view('updatecategory');
+    public function editCategory(Category $category){
+        return view('editcategory', ['category' => $category]);
     }
 
-    public function showCategory(Category $category){
-        $categories = Category::orderBy('cat_views','DESC')->limit(3)->get();
-        foreach($categories as $cat){
-            $cat['questions'] = Question::where('que_cat_id',$cat->id)->count();
-        }
-        $questions = Question::where('que_cat_id' ,$category->id)->get();
-        return view('catdiscuss', ['category' => $category, 'categories' => $categories, 'questions'=>$questions]);        
+    public function updateCategory(Category $category, Request $request){
+        $request->validate([
+            'name' => 'required',
+            'description' => 'nullable'
+        ]);
+        $updated['cat_name']= $request->name;
+        $updated['cat_desc']= $request->description;
+        $category->update($updated);
+        
+        return redirect(route('category.show', ['category'=> $category]))->with("success", "Category updated");
+    }
+
+    public function deleteCategory(Category $category){
+        $category->delete();
+
+        return redirect(route('category.all'))->with("success", "Category deleted successfully");
     }
 
 }
