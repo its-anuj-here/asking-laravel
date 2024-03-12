@@ -29,9 +29,7 @@
     >
        @foreach ($categories as $category)
             <div class="p-4 lg:w-1/3 relative overflow-hidden card">
-                <div
-                    class="h-full bg-gray-800 bg-opacity-40 px-8 pt-16 pb-20 rounded-lg overflow-hidden text-center relative"
-                >
+                <div class="mycard h-full bg-gray-800 bg-opacity-40 px-8 pt-16 pb-20 rounded-lg overflow-hidden text-center relative">
                 <h1
                     class="title-font sm:text-2xl text-xl font-medium text-white mb-3"
                 >
