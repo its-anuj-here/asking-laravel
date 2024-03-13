@@ -5,7 +5,6 @@
     <title>@yield('title', 'asKing')</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
