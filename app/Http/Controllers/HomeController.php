@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\User;
 use App\Models\Question;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class HomeController extends Controller
         foreach($categories as $category){
             $category['questions'] = Question::where('que_cat_id',$category->id)->count();
         }
-        return view('home', ['categories' => $categories]);
+        $user = User::where('id',1)->first();
+        return view('home', ['categories' => $categories, 'user' => $user]);
     }
     public function feedback(Request $request){
         $request->validate([
@@ -34,6 +36,7 @@ class HomeController extends Controller
         return redirect(route('home'))->with("success", "Thank you for your valuable feedback");
     }
     public function showTeam(){
-        return view('team');
+        $user = User::where('id',1)->first();
+        return view('team',['user' => $user]);
     }
 }

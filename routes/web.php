@@ -24,4 +24,9 @@ Route::get('/category/{category}/edit', [CategoryController::class, 'editCategor
 Route::put('/category/{category}/update', [CategoryController::class, 'updateCategory'])->name('category.update');
 Route::delete('/category/{category}/delete', [CategoryController::class, 'deleteCategory'])->name('category.delete');
 
+Route::get('/question/{question}/show', [QuestionController::class, 'show'])->name('question.show');
 Route::post('/category/{category}/question/create', [QuestionController::class, 'create'])->name('question.create');
+Route::get('/question/{question}/edit', [QuestionController::class, 'edit'])->name('question.edit');
+Route::put('/question/{question}/update', [QuestionController::class, 'update'])->name('question.update');
+Route::delete('/question/{question}/delete', [QuestionController::class, 'delete'])->name('question.delete');
+Route::post('/question/{question}/comment/create', [QuestionController::class, 'createCom'])->name('comment.create');

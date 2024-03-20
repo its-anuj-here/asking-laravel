@@ -22,8 +22,15 @@
 
       .banner_ques {
         background: url("{{ asset('storage/c1.png') }}") no-repeat rgb(17 24 39);
+        background-size: 25rem;
+        background-position: 50rem 7rem;
+      }
+
+      .banner_com {
+        background: url("{{ asset('storage/c1.png') }}") no-repeat rgb(17 24 39);
         background-position: 50rem 5rem;
       }
+
       .card::after {
         content: "";
         position: absolute;

@@ -6,30 +6,24 @@
       <span class="ml-3 text-xl">AsKing</span>
     </a>
     <nav class="flex flex-wrap items-center text-base justify-center">
-      <a href="{{route('home')}}" class="mr-5 hover:text-white">Home</a>
-      <a href="{{route('category.all')}}" class="mr-5 hover:text-white">Categories</a>
-      <a href="/#features" class="mr-5 hover:text-white">Features</a>
-      <a href="{{route('team')}}" class="mr-5 hover:text-white">Team</a>
+      <a href="{{route('home')}}" class="mr-5 hover:text-white hover:text-lg">Home</a>
+      <a href="{{route('category.all')}}" class="mr-5 hover:text-white hover:text-lg">Categories</a>
+      <a href="{{route('home')}}/#features" class="mr-5 hover:text-white hover:text-lg">Features</a>
+      <a href="{{route('team')}}" class="mr-5 hover:text-white hover:text-lg">Team</a>
     </nav>
-    <?php 
-    if(session_status()!=2)
-      session_start();
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-      echo '
-          <div class="flex gap-2">
-          <button id="user-btn"
-              class="border-0 py-1 px-3 focus:outline-none hover:bg-white hover:text-black rounded text-base text-white text-semibold bg-blue-400"
-          >
-          '.$_SESSION['username'].' <i class="fa-regular fa-face-smile text-black"></i>
-          </button>
-          <button id="logout-btn"
-            class="border-0 py-1 px-3 focus:outline-none hover:bg-red-700 rounded text-base text-white text-semibold bg-yellow-500"
-          >
-            <a href="./_logout.php" class="inline-flex items-center">
-              Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </a>
-          </button></div>';
-    }?>
+    <div class="flex gap-2">
+    <button id="user-btn"
+        class="border-0 py-1 px-3 focus:outline-none hover:bg-white hover:text-black rounded text-base text-white text-semibold bg-blue-400"
+    >
+    {{$user->username}}<i class="fa-regular fa-face-smile text-black"></i>
+    </button>
+    <button id="logout-btn"
+      class="border-0 py-1 px-3 focus:outline-none hover:bg-red-700 rounded text-base text-white text-semibold bg-yellow-500"
+    >
+      <a href="{{route('logout')}}" class="inline-flex items-center">
+        Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </a>
+    </button>
               
   <a id="login-btn" href="{{route('login')}}"
     class="inline-flex items-center gap-2 rounded border border-indigo-600 bg-green-700 px-6 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
@@ -44,5 +38,5 @@
     </svg>
           
   </a>
-
+</div>
 </header>
