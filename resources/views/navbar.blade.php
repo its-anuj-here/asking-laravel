@@ -13,12 +13,12 @@
     </nav>
     <div class="flex gap-2">
     <button id="user-btn"
-        class="border-0 py-1 px-3 focus:outline-none hover:bg-white hover:text-black rounded text-base text-white text-semibold bg-blue-400"
+        class="py-1 px-3 focus:outline-none hover:text-black rounded text-base text-white text-semibold bg-green-700 hover:text-white hover:bg-transparent border border-green-600 hover:border hover:border-yellow-600"
     >
-    {{$user->username}}<i class="fa-regular fa-face-smile text-black"></i>
+    {{$user->username}}<i class="fa-regular fa-face-smile text-white pl-1"></i>
     </button>
     <button id="logout-btn"
-      class="border-0 py-1 px-3 focus:outline-none hover:bg-red-700 rounded text-base text-white text-semibold bg-yellow-500"
+      class="py-1 px-3 focus:outline-none hover:bg-red-700 rounded text-base text-white text-semibold bg-yellow-600 border border-yellow-600 hover:border hover:border-red-700" 
     >
       <a href="{{route('logout')}}" class="inline-flex items-center">
         Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -26,7 +26,7 @@
     </button>
               
   <a id="login-btn" href="{{route('login')}}"
-    class="inline-flex items-center gap-2 rounded border border-indigo-600 bg-green-700 px-6 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+    class="inline-flex items-center gap-2 rounded border border-green-600 hover:border hover:border-yellow-600 bg-green-700 px-6 py-3 text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-yellow-500"
   >
     <span class="text-sm font-medium"> Login </span>
 
